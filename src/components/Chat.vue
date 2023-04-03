@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <div >
+    <div >
+        <v-container class="bg-surface-variant">
+            <Nav />
+        </v-container>
+        <div class="text_card">
           <Message v-for="value in messages" :key="value.id" :name="value.username" :sender="value.userId === user?.uid" :photoURL="value.userPhotoURl">
             {{value.text}} 
           </Message>
@@ -19,15 +22,17 @@
         </div>
     </div>
 </template>
+
 <script>
 import { defineComponent } from '@vue/composition-api'
 import {ref,watch,nextTick} from 'vue'
 import { useAuth,useChat } from '../firebase'
 import sendIcon from './SendIcon.vue'
 import Message from './Message.vue'
+import Nav from './Nav.vue'
 
 export default defineComponent({
-    components:{Message,sendIcon},
+    components:{Message,sendIcon,Nav},
     setup() {
         
         const {messages,sendMessage} = useChat()
@@ -37,12 +42,13 @@ export default defineComponent({
             messages,
             () =>{
             nextTick(() => {bottom.value?.scrollIntoView({behavior:'smooth'})})
-            console.log("kk",messages);
     },
             {deep:true}
         )
         const send = () =>{
+             if(message.value !==''){
               sendMessage(message.value)
+             }
               message.value =''
         }
          const {user,isLogin} =useAuth()
@@ -51,3 +57,8 @@ export default defineComponent({
     },
 })
 </script>
+<style scoped>
+.text_card{
+    background-color: aqua;
+}
+</style>

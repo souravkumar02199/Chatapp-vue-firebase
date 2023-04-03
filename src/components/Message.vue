@@ -2,15 +2,24 @@
     <div>
         <span>{{name}}</span>
         <div>
-            <Avtar :src="photoURL"></Avtar>
-            <div :class="sender ? 'fff':'bg-red'">
+            <!-- <Avtar :src="photoURL"></Avtar> -->
+            <!-- <div :class="sender ? 'fff':'bg-red'">
               <slot />
-            </div>
+            </div> -->
         </div>
+        <v-container class="bg-surface-variant">
+            <v-row :class="sender ? 'justify-start':'justify-end'" class="ma-1">
+                <v-col cols="8" rounded-xl v-if="sender ? 'justify:start':'justify:end'" justify="end" :class="sender ? 'sender':'receiver'" class="rounded-xl"><slot /></v-col>
+            </v-row>
+            <!-- <v-row justify="end">
+                <v-col cols="8" align-self="end" class="text-center" >dd</v-col>
+            </v-row> -->
+        </v-container>    
     </div>
 </template>
 
 <script>
+
 import { defineComponent } from '@vue/composition-api'
 import Avtar from './Avtar.vue'
 
@@ -29,7 +38,10 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.fff{
-    background-color: green;
+.sender{
+    background-color:rgb(150, 84, 212);
+}
+.receiver{
+    background-color:rgb(35, 62, 214);
 }
 </style>
