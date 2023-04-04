@@ -24,9 +24,7 @@
                               </v-btn>
                             </v-list-item>
                             <v-list-item prepend-icon="mdi-home-city" title="Home" value="home">
-                              <v-btn @click="currentComponent = 'Chat'" width="8vw" height="40px" color="#fff" class="rounded-lg third_card3 mb-2" prepend-icon="">
-                                    <span class="pt-1"><v-icon>mdi-chat</v-icon>Chat</span>
-                              </v-btn>
+                              <router-link to="/Chat"><v-btn depressed color="primary" ><span class="pt-1"><v-icon>mdi-chat</v-icon>Chat</span></v-btn></router-link>
                             </v-list-item>
                           </v-list>
                         </v-navigation-drawer>

@@ -1,26 +1,47 @@
 <template>
-    <div >
+    <v-app style="background: #ddcbe2;">
         <v-container class="bg-surface-variant">
             <Nav />
         </v-container>
-        <div class="text_card">
-          <Message v-for="value in messages" :key="value.id" :name="value.username" :sender="value.userId === user?.uid" :photoURL="value.userPhotoURl">
-            {{value.text}} 
-          </Message>
-        </div>
+        <v-container>
+        
+    </v-container>
+        <v-container class="bg-surface-variant">
+            <div class="text_card">
+            <Message v-for="value in messages" :key="value.id" :name="value.username" :sender="value.userId === user?.uid" :photoURL="value.userPhotoURl">
+                    <v-row
+                        align="start"
+                        >
+                        <v-col cols="1" class="pr-1">
+                            <v-card class="rounded-circle" >
+                                <v-img
+                                min-height="4vh"
+                                :src="value.userPhotoURl"
+                                ></v-img>
+                            </v-card>
+                        </v-col>
+                        <v-col cols="9" class="pl-0" >
+                            <v-card class="pa-3 rounded-lg" :class="value.userId === user?.uid ? 'sender':'receiver'">
+                                {{value.text}} 
+                            </v-card>
+                        </v-col>
+                    </v-row>
+            </Message>
+            <div>
+                <v-form action="" v-if="isLogin" @submit.prevent="send" class="pa-2">
+                    <v-card class="pa-3 rounded-lg" style="background-color:dimgray;">
+                      <v-text-field name="input-1" label="Message" color="white lighten-1" v-model="message"></v-text-field>
+                    </v-card>
+                    <v-btn type="submit" class="rounded-circle" min-height="70px" bg-color="aquamarine" style="background-color: green;">
+                        <v-icon size="45" color="#fff">mdi-send</v-icon>
+                        <sendIcon/>
+                    </v-btn>
+                </v-form>
+         v  </div>
+            </div>
+        </v-container>
         <div ref="bottom"></div>
-        <div>
-            <v-form action="" v-if="isLogin" @submit.prevent="send">
-                <div>
-                  <v-text-field name="input-1" label="Name" v-model="message"></v-text-field>
-                </div>
-                <v-btn type="submit">
-                    send
-                    <sendIcon/>
-                </v-btn>
-            </v-form>
-        </div>
-    </div>
+    </v-app>
 </template>
 
 <script>
@@ -59,6 +80,16 @@ export default defineComponent({
 </script>
 <style scoped>
 .text_card{
-    background-color: aqua;
+    background-color: rgb(33, 44, 66);
+}
+.sender{
+    background-color:rgb(150, 84, 212);
+}
+.receiver{
+    background-color:rgb(35, 62, 214);
+}
+:deep(.v-label )  {
+  color:white !important;
+  font-size: 20px;
 }
 </style>
