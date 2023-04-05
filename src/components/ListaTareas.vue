@@ -14,17 +14,17 @@
                         >
                           <v-list  nav>
                             <v-list-item prepend-icon="mdi-home-city" title="Home" value="home">
-                              <v-btn @click="currentComponent = 'ListA'" width="8vw" height="40px"  color="#fff" class="rounded-lg third_card3 mb-2" prepend-icon="">
-                                    <span class="pt-1"><v-icon>mdi-arrow-right-thin</v-icon>Checkout</span>
+                              <v-btn @click="currentComponent = 'ListA'" depressed color="primary"  prepend-icon="" min-width="10vw">
+                                    <span class="pt-1">Checkout</span>
                               </v-btn>
                             </v-list-item>
                             <v-list-item prepend-icon="mdi-home-city" title="Home" value="home">
-                              <v-btn @click="currentComponent = 'ListAll'" width="8vw" height="40px" color="#fff" class="rounded-lg third_card3 mb-2" prepend-icon="">
+                              <v-btn @click="currentComponent = 'ListAll'" depressed color="primary"  prepend-icon="" min-width="10vw">
                                     <span class="pt-1">Createuser</span>
                               </v-btn>
                             </v-list-item>
                             <v-list-item prepend-icon="mdi-home-city" title="Home" value="home">
-                              <router-link to="/Chat"><v-btn depressed color="primary" ><span class="pt-1"><v-icon>mdi-chat</v-icon>Chat</span></v-btn></router-link>
+                              <router-link to="/Chat"><v-btn depressed color="primary" min-width="10vw"><span class="pt-1"><v-icon>mdi-chat</v-icon>Chat</span></v-btn></router-link>
                             </v-list-item>
                           </v-list>
                         </v-navigation-drawer>
@@ -68,3 +68,8 @@
       }
   }
   </script>
+  <style scoped>
+  :deep(.v-btn:not) {
+     min-width: 10vw;
+  }
+  </style>

@@ -3,12 +3,9 @@
         <v-container class="bg-surface-variant">
             <Nav />
         </v-container>
-        <v-container>
-        
-    </v-container>
         <v-container class="bg-surface-variant">
             <div class="text_card">
-            <Message v-for="value in messages" :key="value.id" :name="value.username" :sender="value.userId === user?.uid" :photoURL="value.userPhotoURl">
+                <Message v-for="value in messages" :key="value.id" :name="value.username" :sender="value.userId === user?.uid" :photoURL="value.userPhotoURl">
                     <v-row
                         align="start"
                         >
@@ -26,7 +23,7 @@
                             </v-card>
                         </v-col>
                     </v-row>
-            </Message>
+                </Message>
             <div>
                 <v-form action="" v-if="isLogin" @submit.prevent="send" class="pa-2">
                     <v-card class="pa-3 rounded-lg" style="background-color:dimgray;">
@@ -37,7 +34,7 @@
                         <sendIcon/>
                     </v-btn>
                 </v-form>
-         v  </div>
+            </div>
             </div>
         </v-container>
         <div ref="bottom"></div>
@@ -80,7 +77,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .text_card{
-    background-color: rgb(33, 44, 66);
+    background-color: rgb(26, 30, 37);
 }
 .sender{
     background-color:rgb(150, 84, 212);
