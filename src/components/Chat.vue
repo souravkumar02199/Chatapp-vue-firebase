@@ -27,13 +27,22 @@
             <div>
                 <v-form action="" v-if="isLogin" @submit.prevent="send" class="pa-2">
                     <v-card class="pa-3 rounded-lg" style="background-color:dimgray;">
-                      <v-text-field name="input-1" label="Message" color="white lighten-1" v-model="message"></v-text-field>
+                        <v-row>
+                            <v-col> <v-text-field name="input-1" label="Message" color="white lighten-1" v-model="message"></v-text-field></v-col>
+                            
+                        </v-row>
+                     
+
                     </v-card>
                     <v-btn type="submit" class="rounded-circle" min-height="70px" bg-color="aquamarine" style="background-color: green;">
                         <v-icon size="45" color="#fff">mdi-send</v-icon>
                         <sendIcon/>
                     </v-btn>
                 </v-form>
+                <v-col>
+                    <v-text-field name="input-1" label="code" color="white lighten-1" v-model="roomID"></v-text-field>
+                    <router-link :to="`/videochat/${roomID}`"><v-btn @click="sendRoomId"><v-icon size="45" color="green">mdi-video-box</v-icon>{{ roomID }}</v-btn></router-link>
+                </v-col>
             </div>
             </div>
         </v-container>
@@ -56,6 +65,7 @@ export default defineComponent({
         const {messages,sendMessage} = useChat()
         const bottom =ref(null)
         const message =ref('')
+        let roomID = ref('')
         watch(
             messages,
             () =>{
@@ -69,9 +79,16 @@ export default defineComponent({
              }
               message.value =''
         }
+        const sendRoomId = () =>{
+             if(roomID.value !==''){
+                roomID.value
+                console.log("kk",roomID.value);
+             }
+             roomID.value =''
+        }
          const {user,isLogin} =useAuth()
 
-        return {user,isLogin,bottom,messages,message,send}
+        return {user,isLogin,bottom,messages,message,send,roomID,sendRoomId}
     },
 })
 </script>

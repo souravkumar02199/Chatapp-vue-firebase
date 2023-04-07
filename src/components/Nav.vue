@@ -2,7 +2,6 @@
     <nav>
         <v-app-bar
         color="teal-darken-4"
-        image="https://picsum.photos/1920/1080?random"
       >
         <template v-slot:image>
           <v-img
@@ -32,8 +31,7 @@
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
-      </v-app-bar>
-        
+      </v-app-bar> 
     </nav>
     </template>
     <script>
