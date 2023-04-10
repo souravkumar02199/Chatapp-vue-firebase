@@ -11,6 +11,7 @@
     "@material-ui/icons": "^4.11.3",
     "@vue/composition-api": "^1.7.1",
     "@zegocloud/zego-uikit-prebuilt": "^1.7.5",
+    "@zegocloud/zego-uikit-prebuilt-call-rn": "^1.5.1",
     "bad-words": "^3.0.4",
     "core-js": "^3.6.5",
     "firebase": "^8.2.3",
@@ -18,7 +19,8 @@
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.6.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "zego-zim-web": "^2.5.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.13",
