@@ -4,8 +4,8 @@
         <div>
         </div>
         <v-container class="bg-surface-variant">
-            <v-row :class="sender ? 'justify-start':'justify-end'" class="mt-1">
-                <v-col cols="8" rounded-xl v-if="sender ? 'justify:start':'justify:end'" justify="end" :class="sender ? 'sender':'receiver'" class="rounded-xl"><slot /></v-col>
+            <v-row :class="sender ? 'justify-end':'justify-start'" class="mt-1">
+                <v-col cols="8" rounded-xl v-if="sender ? 'justify:end':'justify:start'" justify="end" :class="sender ? 'sender':'receiver'" class="rounded-xl"><slot /></v-col>
             </v-row>
         </v-container>    
     </div>
